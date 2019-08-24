@@ -15,10 +15,10 @@ TMPDIR=$(mktemp -d)
 cd $TMPDIR
 
 # Delete data and reconfigure.
-cp -v /var/lib/ldap/DB_CONFIG ./DB_CONFIG
+# cp -v /var/lib/ldap/DB_CONFIG ./DB_CONFIG
 rm -rf /etc/ldap/slapd.d/*
 rm -rf /var/lib/ldap/*
-cp -v ./DB_CONFIG /var/lib/ldap/DB_CONFIG
+# cp -v ./DB_CONFIG /var/lib/ldap/DB_CONFIG
 slapadd -F /etc/ldap/slapd.d -b "cn=config" -l $BASE_PATH/slapd.conf.ldif
 # Load memberof and ref-int overlays and configure them.
 slapadd -F /etc/ldap/slapd.d -b "cn=config" -l $BASE_PATH/memberof.ldif
